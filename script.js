@@ -1,0 +1,299 @@
+'use strict';
+
+const copy = {
+  en: {
+    skip:'Skip to content',navWork:'Work',navAbout:'About',navExpertise:'Expertise',navPhotography:'Photography',navContact:'Contact',
+    heroEyebrow:'BASED IN HAMAR, NORWAY',heroRole:'STUDENT & MEDIA PRODUCER',
+    heroDescription:"I'm a first-year Media Production student passionate about photography, filmmaking and telling real stories through visuals.",
+    seeWork:'Explore my work',getInTouch:'Get in touch',portraitNote:'A NEW PERSPECTIVE, EVERY FRAME.',scrollToExplore:'SCROLL TO EXPLORE',
+    workEyebrow:'THE PORTFOLIO / 2026 & BEYOND',selected:'Selected',work:'work',
+    workIntro:'A selection of creative school projects, concert photography and real-world media experience.',
+    projectSchool:'SCHOOL PROJECT',projectPaidWork:'PAID WORK',diadCategory:'BRAND IDENTITY · CONCEPT',motorshowCategory:'EVENT PHOTOGRAPHY',ukmCategory:'LIVE MUSIC PHOTOGRAPHY',albumCategory:'ALBUM COVER DESIGN',reworkCategory:'ALBUM ART REINTERPRETATION',
+    aboutEyebrow:'A LITTLE ABOUT ME',beyond:'Beyond',theLens:'the lens.',
+    aboutP1:"I'm Gleb Diadiurenko, a first-year Media Production student based in Hamar, Norway. I moved here from Vang i Valdres, and I'm turning my curiosity for visual storytelling into hands-on experience.",
+    aboutP2:'I love photographing people, animals and live events, experimenting with camera techniques and discovering how a single frame can capture a moment.',
+    aboutP3:"I've worked photographing Oslo Motorshow and UKM concerts. Those experiences helped me grow in the field, communicate with different people and keep learning on the job.",
+    aboutP4:"My goal is to become a great specialist in media production — and one day pass what I've learned on to the next generation.",
+    aboutCaption:'BEHIND THE CAMERA / IN FRONT OF IT',aboutLabelLocation:'CURRENTLY BASED',aboutLabelFocus:'FOCUS',aboutFocus:'PHOTO / VIDEO / MEDIA',
+    expertiseEyebrow:'WHAT I BRING TO THE TABLE',what:'What I',do:'do',expertiseIntro:"Creative work is more than just pressing record. It's about noticing details, working with people and communicating an idea clearly.",
+    servicePhoto:'Photography',servicePhotoDesc:'Portraits, animals, live performances and event coverage — finding the moment worth remembering.',
+    serviceVideo:'Video production',serviceVideoDesc:'Filming with different techniques and editing footage into visual stories, primarily in DaVinci Resolve.',
+    serviceCreative:'Creative concepts',serviceCreativeDesc:'Designing brand ideas, album covers and visual work using tools such as Photoshop and After Effects.',
+    servicePeople:'People & communication',servicePeopleDesc:'Client communication, social media, marketing and sharing what I learn with others.',
+    toolsEyebrow:'TOOLS & INTERESTS',toolsHelper:'CLICK TO EXPLORE EACH ONE ↗',toolMyUse:'HOW I USE IT',toolClose:'CLOSE',toolCloseAria:'Close showcase',toolOpenAria:'Learn more about',toolGroupAria:'Tools and interests',toolPhotography:'Photography',toolMarketing:'Marketing',toolSocial:'Social media',
+    photoEyebrow:'MOMENTS, CAPTURED',photography:'Photography',photoIntro:'A few frames from Oslo Motorshow and live concerts. Click any image for a closer look.',filterAll:'All photos',filterMotorshow:'Motorshow',filterConcerts:'Concerts',filterOther:'Other',
+    contactEyebrow:"LET'S MAKE SOMETHING",haveIdea:'Have an idea?',letsTalk:"Let's talk.",
+    contactIntro:"Have a project, a question or just want to connect? Reach out — I'm always interested in creative opportunities and new experiences.",
+    contactEmail:'SEND AN EMAIL',footerMade:'MADE WITH CURIOSITY IN NORWAY',backTop:'BACK TO TOP',
+    dialogRole:'MY ROLE',dialogTools:'TOOLS / CONTEXT',dialogYear:'YEAR',backProjects:'← BACK TO PROJECTS',
+    profileAlt:'Portrait of Gleb Diadiurenko',forestAlt:'Gleb photographed outdoors in autumn, wearing a dark coat and cap',forest2Alt:'Full-body portrait of Gleb in the woods',
+    menuOpen:'Open menu',menuClose:'Close menu',filterAria:'Filter photography',closeProject:'Close project',closePhoto:'Close photograph',previousPhoto:'Previous photograph',nextPhoto:'Next photograph',viewProject:'View project',enlargePhoto:'Enlarge photograph',
+    pageDescription:'Gleb Diadiurenko — Media Production student, photographer and visual storyteller based in Hamar, Norway.'
+  },
+  no: {
+    skip:'Hopp til innhold',navWork:'Prosjekter',navAbout:'Om meg',navExpertise:'Kompetanse',navPhotography:'Foto',navContact:'Kontakt',
+    heroEyebrow:'BASERT I HAMAR, NORGE',heroRole:'ELEV & MEDIEPRODUSENT',
+    heroDescription:'Jeg går første året på medieproduksjon og brenner for fotografering, film og å fortelle ekte historier gjennom bilder.',
+    seeWork:'Se prosjektene mine',getInTouch:'Ta kontakt',portraitNote:'ET NYTT PERSPEKTIV I HVERT BILDE.',scrollToExplore:'BLA NED FOR Å UTFORSKE',
+    workEyebrow:'PORTEFØLJE / 2026 OG VIDERE',selected:'Utvalgte',work:'prosjekter',
+    workIntro:'Et utvalg kreative skoleprosjekter, konsertfotografier og erfaring fra mediearbeid.',
+    projectSchool:'SKOLEPROSJEKT',projectPaidWork:'BETALT OPPDRAG',diadCategory:'MERKEVAREIDENTITET · KONSEPT',motorshowCategory:'ARRANGEMENTSFOTO',ukmCategory:'KONSERTFOTOGRAFERING',albumCategory:'DESIGN AV ALBUMCOVER',reworkCategory:'NYTOLKNING AV ALBUMCOVER',
+    aboutEyebrow:'LITT OM MEG',beyond:'Mer enn',theLens:'et kamera.',
+    aboutP1:'Jeg heter Gleb Diadiurenko og går første året på medieproduksjon i Hamar. Jeg flyttet hit fra Vang i Valdres og utvikler interessen min for visuell historiefortelling gjennom praktisk erfaring.',
+    aboutP2:'Jeg liker å fotografere mennesker, dyr og arrangementer, prøve ulike kamerateknikker og oppdage hvordan ett bilde kan fange et øyeblikk.',
+    aboutP3:'Jeg har jobbet med fotografering på Oslo Motorshow og UKM-konserter. Disse erfaringene har hjulpet meg med å utvikle ferdighetene mine, kommunisere med forskjellige mennesker og lære gjennom praksis.',
+    aboutP4:'Målet mitt er å bli en dyktig fagperson innen medieproduksjon og en dag dele det jeg har lært med neste generasjon.',
+    aboutCaption:'BAK KAMERAET / FORAN KAMERAET',aboutLabelLocation:'HOLDER TIL I',aboutLabelFocus:'FOKUS',aboutFocus:'FOTO / VIDEO / MEDIER',
+    expertiseEyebrow:'DET JEG KAN BIDRA MED',what:'Dette',do:'gjør jeg',expertiseIntro:'Kreativt arbeid handler om mer enn å trykke på opptak. Det handler om å se detaljer, samarbeide med mennesker og formidle ideer tydelig.',
+    servicePhoto:'Fotografering',servicePhotoDesc:'Portretter, dyr, konserter og arrangementer — å fange øyeblikkene som er verdt å huske.',
+    serviceVideo:'Videoproduksjon',serviceVideoDesc:'Filming med ulike teknikker og redigering av visuelle historier, hovedsakelig i DaVinci Resolve.',
+    serviceCreative:'Kreative konsepter',serviceCreativeDesc:'Utvikling av merkevareideer, albumcover og visuelt arbeid med blant annet Photoshop og After Effects.',
+    servicePeople:'Kommunikasjon',servicePeopleDesc:'Kundekommunikasjon, sosiale medier, markedsføring og å dele det jeg lærer med andre.',
+    toolsEyebrow:'VERKTØY OG INTERESSER',toolsHelper:'TRYKK FOR Å LESE MER ↗',toolMyUse:'SLIK BRUKER JEG DET',toolClose:'LUKK',toolCloseAria:'Lukk visning',toolOpenAria:'Les mer om',toolGroupAria:'Verktøy og interesser',toolPhotography:'Fotografering',toolMarketing:'Markedsføring',toolSocial:'Sosiale medier',
+    photoEyebrow:'ØYEBLIKK, FOREVIGET',photography:'Fotografi',photoIntro:'Et lite utvalg bilder fra Oslo Motorshow og konserter. Trykk på et bilde for å se det større.',filterAll:'Alle bilder',filterMotorshow:'Motorshow',filterConcerts:'Konserter',filterOther:'Annet',
+    contactEyebrow:'LA OSS SKAPE NOE',haveIdea:'Har du en idé?',letsTalk:'Ta kontakt.',
+    contactIntro:'Har du et prosjekt, et spørsmål eller bare lyst til å ta kontakt? Jeg er alltid interessert i kreative muligheter og nye erfaringer.',
+    contactEmail:'SEND EN E-POST',footerMade:'LAGET MED NYSGJERRIGHET I NORGE',backTop:'TIL TOPPEN',
+    dialogRole:'MIN ROLLE',dialogTools:'VERKTØY / SAMMENHENG',dialogYear:'ÅR',backProjects:'← TILBAKE TIL PROSJEKTER',
+    profileAlt:'Portrett av Gleb Diadiurenko',forestAlt:'Gleb fotografert ute i høstskogen med mørk jakke og caps',forest2Alt:'Helfigurportrett av Gleb i skogen',
+    menuOpen:'Åpne menyen',menuClose:'Lukk menyen',filterAria:'Filtrer fotografier',closeProject:'Lukk prosjekt',closePhoto:'Lukk bildet',previousPhoto:'Forrige bilde',nextPhoto:'Neste bilde',viewProject:'Se prosjekt',enlargePhoto:'Vis bilde større',
+    pageDescription:'Gleb Diadiurenko — elev i medieproduksjon, fotograf og visuell historieforteller i Hamar, Norge.'
+  }
+};
+
+const projects = {
+  diad: {
+    title:'DIAD',year:'2026',images:['assets/diad-concept.webp'],
+    alt:{en:['DIAD brand and lighting website concept'],no:['Konsept for merkevaren DIAD og nettside for LED-lys']},
+    en:{kicker:'OCTOBER 2026 / SCHOOL PROJECT',description:'DIAD is a fictional LED-lighting company I created for a school assignment in October 2026. I developed the original idea, company name, logos and the visual brand concept, including this website presentation.',role:'Concept, naming, logo design and visual presentation',tools:'Adobe Photoshop · Adobe After Effects · AI-assisted creative tools',disclaimer:'Concept work for a school assignment — not a real online shop.'},
+    no:{kicker:'OKTOBER 2026 / SKOLEPROSJEKT',description:'DIAD er en oppdiktet bedrift for LED-belysning som jeg laget til en skoleoppgave i oktober 2026. Jeg utviklet ideen, firmanavnet, logoene og det visuelle konseptet, inkludert denne presentasjonen av en nettside.',role:'Idé, navn, logodesign og visuell presentasjon',tools:'Adobe Photoshop · Adobe After Effects · KI-verktøy som kreativ støtte',disclaimer:'Konsept utviklet til en skoleoppgave — ikke en ekte nettbutikk.'}
+  },
+  motorshow: {
+    title:'OSLO MOTORSHOW',year:'2026',images:['assets/motorshow-01.webp','assets/motorshow-02.webp','assets/motorshow-03.webp'],
+    alt:{en:['Silver sports car at Oslo Motorshow','Several cars on a vertical exhibition display','Colorful customized car at Oslo Motorshow'],no:['Sølvfarget sportsbil på Oslo Motorshow','Biler utstilt i flere etasjer','Fargerik ombygd bil på Oslo Motorshow']},
+    en:{kicker:'2026 / PAID MEDIA WORK',description:'In 2026 I worked at Oslo Motorshow as a media contributor, focusing mainly on photographing cars and exhibition displays with a Sony camera. I explored angles, details and the atmosphere of the event.',role:'Event photography and media coverage',tools:'Sony camera · On-location photography',disclaimer:''},
+    no:{kicker:'2026 / BETALT MEDIEOPPDRAG',description:'I 2026 jobbet jeg som mediebidragyter på Oslo Motorshow, der jeg hovedsakelig fotograferte biler og utstillinger med et Sony-kamera. Jeg jobbet med vinkler, detaljer og stemningen på arrangementet.',role:'Arrangementsfotografering og mediedekning',tools:'Sony-kamera · Fotografering på stedet',disclaimer:''}
+  },
+  ukm: {
+    title:'UKM CONCERTS',year:'2026',images:['assets/ukm-concert-01.webp','assets/ukm-concert-02.webp'],
+    alt:{en:['Group of musicians onstage at UKM','Rock band on stage under colored lights'],no:['Musikere på scenen under UKM','Rockeband på scenen i farget lys']},
+    en:{kicker:'2026 / PAID EVENT WORK',description:'I was paid to photograph several UKM concerts in 2026. This was also a chance to learn: capturing performers, stage lights and movement while improving my live-event photography skills.',role:'Live concert photography',tools:'On-location event photography',disclaimer:''},
+    no:{kicker:'2026 / BETALT OPPDRAG',description:'Jeg fikk betalt for å fotografere flere UKM-konserter i 2026. Oppdraget var også en mulighet til å lære mer om å fotografere artister, scenelys og bevegelse under konserter.',role:'Konsertfotografering',tools:'Fotografering på arrangement',disclaimer:''}
+  },
+  never: {
+    title:'NEVER GO AWAY',year:'—',images:['assets/never-go-away.webp'],
+    alt:{en:['Original black-and-white Never Go Away cover artwork'],no:['Originalt svart-hvitt-cover med tittelen Never Go Away']},
+    en:{kicker:'SCHOOL PROJECT / ALBUM COVER',description:'An original album-cover artwork I designed independently in Adobe Photoshop for a school assignment. It is a visual concept only — there is no song or released album attached to it.',role:'Original visual concept and cover design',tools:'Adobe Photoshop · School assignment',disclaimer:'Standalone concept artwork.'},
+    no:{kicker:'SKOLEPROSJEKT / ALBUMCOVER',description:'Et originalt albumcover som jeg designet selv i Adobe Photoshop til en skoleoppgave. Dette er bare et visuelt konsept — det finnes ingen sang eller utgitt plate knyttet til coveret.',role:'Eget visuelt konsept og coverdesign',tools:'Adobe Photoshop · Skoleoppgave',disclaimer:'Et selvstendig konseptarbeid.'}
+  },
+  gorillaz: {
+    title:'GORILLAZ REWORK',year:'—',images:['assets/gorillaz-reinterpretation.webp'],
+    alt:{en:['Gorillaz album cover reinterpretation with a green truck'],no:['Ny tolkning av et Gorillaz-albumcover med grønn lastebil']},
+    en:{kicker:'SCHOOL PROJECT / REINTERPRETATION',description:'For a school assignment, I reinterpreted an existing Gorillaz album cover using my own imagery. I created this alternate version in Adobe Photoshop as a practice project in visual design.',role:'Artwork reinterpretation and image composition',tools:'Adobe Photoshop · School assignment',disclaimer:'Unofficial student reinterpretation; not affiliated with Gorillaz.'},
+    no:{kicker:'SKOLEPROSJEKT / NYTOLKNING',description:'I en skoleoppgave laget jeg min egen versjon av et eksisterende albumcover fra Gorillaz, med mine egne bilder. Jeg satt sammen den nye versjonen i Adobe Photoshop som en øvelse i visuelt design.',role:'Nytolkning av cover og bildesammensetting',tools:'Adobe Photoshop · Skoleoppgave',disclaimer:'Uoffisiell elevoppgave, uten tilknytning til Gorillaz.'}
+  }
+};
+
+const toolShowcases = {
+  davinci:{icon:'assets/tools/davinci.svg',name:'DaVinci Resolve',en:{category:'VIDEO EDITING SOFTWARE',description:'DaVinci Resolve is a professional video application for editing, color grading, visual effects and sound. It brings the steps of post-production together in one place.',personal:'This is the program I mainly use for video editing. I cut footage, work with pacing and shape clips into a complete visual story.'},no:{category:'PROGRAM FOR VIDEOREDIGERING',description:'DaVinci Resolve er et profesjonelt program for videoredigering, fargekorrigering, visuelle effekter og lyd. Det samler etterarbeidet på ett sted.',personal:'Dette er programmet jeg bruker mest til videoredigering. Jeg klipper opptak, jobber med rytme og setter sammen klipp til en visuell historie.'}},
+  photoshop:{icon:'assets/tools/photoshop.svg',name:'Adobe Photoshop',en:{category:'PHOTO EDITING & DESIGN',description:'Adobe Photoshop is an image-editing and design tool used to retouch photos, combine images, create artwork and build digital compositions.',personal:'I used Photoshop to create my two school album covers and to develop parts of the branding and presentation for DIAD.'},no:{category:'BILDEREDIGERING OG DESIGN',description:'Adobe Photoshop brukes til bilderedigering, retusjering, bildemontasjer, illustrasjoner og digitalt design.',personal:'Jeg brukte Photoshop til å lage begge albumcoverene mine på skolen og til deler av merkevaren og presentasjonen for DIAD.'}},
+  aftereffects:{icon:'assets/tools/aftereffects.svg',name:'Adobe After Effects',en:{category:'MOTION DESIGN SOFTWARE',description:'Adobe After Effects is used to create motion graphics, animated typography, visual effects and moving elements for video and digital design.',personal:'I used After Effects in the DIAD school project while exploring the visual presentation of my LED-lighting brand concept.'},no:{category:'PROGRAM FOR MOTION DESIGN',description:'Adobe After Effects brukes til å lage bevegelsesgrafikk, animert tekst, visuelle effekter og bevegelige elementer til video og digital design.',personal:'Jeg brukte After Effects i skoleprosjektet DIAD da jeg jobbet med den visuelle presentasjonen av LED-lys-konseptet mitt.'}},
+  photography:{icon:'assets/tools/photography.svg',name:{en:'Photography',no:'Fotografering'},en:{category:'CREATIVE PRACTICE',description:'Photography is about using framing, light and timing to capture a story in a single image — whether it is a portrait, an animal or an event.',personal:'I enjoy photographing people, animals and concerts. At Oslo Motorshow, I photographed cars with a Sony camera, practising composition in a busy environment.'},no:{category:'KREATIVT ARBEID',description:'Fotografering handler om å bruke utsnitt, lys og timing for å fange en historie i ett bilde, enten det er et portrett, et dyr eller et arrangement.',personal:'Jeg liker å fotografere mennesker, dyr og konserter. På Oslo Motorshow fotograferte jeg biler med et Sony-kamera og øvde på komposisjon i et travelt miljø.'}},
+  marketing:{icon:'assets/tools/marketing.svg',name:{en:'Marketing',no:'Markedsføring'},en:{category:'COMMUNICATION & STRATEGY',description:'Marketing is about understanding an audience and presenting ideas so the right people notice and understand them. Strong images and clear messaging make a difference.',personal:'Marketing is one of my interests in media production. I enjoy thinking about how to present creative work in a way that connects with an audience.'},no:{category:'KOMMUNIKASJON OG STRATEGI',description:'Markedsføring handler om å forstå en målgruppe og formidle ideer slik at de riktige menneskene legger merke til og forstår budskapet.',personal:'Markedsføring er noe jeg er interessert i innen medieproduksjon. Jeg liker å tenke på hvordan kreativt arbeid kan presenteres for å nå ut til folk.'}},
+  social:{icon:'assets/tools/social.svg',name:{en:'Social media',no:'Sosiale medier'},en:{category:'DIGITAL COMMUNICATION',description:'Social media is a place for visual storytelling, sharing projects and reaching people through photography, video and thoughtful content.',personal:'I am interested in creating content that communicates clearly, sharing visual work and understanding what makes an image or video engaging.'},no:{category:'DIGITAL KOMMUNIKASJON',description:'Sosiale medier gir muligheter til å fortelle historier visuelt, dele prosjekter og nå ut til mennesker gjennom bilder, video og godt innhold.',personal:'Jeg er interessert i å lage innhold som kommuniserer tydelig, dele visuelt arbeid og forstå hva som gjør et bilde eller en video engasjerende.'}}
+};
+
+const photos = [
+  {src:'assets/motorshow-01.webp',group:'motorshow',en:'Oslo Motorshow — silver sports car',no:'Oslo Motorshow — sølvfarget sportsbil'},
+  {src:'assets/motorshow-02.webp',group:'motorshow',en:'Oslo Motorshow — exhibition display',no:'Oslo Motorshow — bilutstilling'},
+  {src:'assets/motorshow-03.webp',group:'motorshow',en:'Oslo Motorshow — customized car',no:'Oslo Motorshow — ombygd bil'},
+  {src:'assets/ukm-concert-01.webp',group:'ukm',en:'UKM concerts — ensemble on stage',no:'UKM-konserter — ensemble på scenen'},
+  {src:'assets/ukm-concert-02.webp',group:'ukm',en:'UKM concerts — live band',no:'UKM-konserter — liveband'}
+];
+
+let locale = 'en';
+let activeProject = null;
+let activeProjectImage = 0;
+let galleryFilter = 'all';
+let currentLightboxIndex = 0;
+let lastProjectTrigger = null;
+let lastPhotoTrigger = null;
+let activeTool = null;
+let lastToolTrigger = null;
+
+const $ = selector => document.querySelector(selector);
+const $$ = selector => Array.from(document.querySelectorAll(selector));
+const projectDialog = $('#projectDialog');
+const lightbox = $('#lightbox');
+const toolDialog = $('#toolDialog');
+
+function readSavedLanguage() {try {return localStorage.getItem('gleb-portfolio-language')}catch {return null}}
+function saveLanguage(lang) {try {localStorage.setItem('gleb-portfolio-language',lang)}catch {}}
+function translate(lang, persist=true) {
+  if (!copy[lang]) return;
+  locale=lang;
+  document.documentElement.lang=lang==='no'?'nb':'en';
+  document.title=lang==='no'?'Gleb Diadiurenko — Elev og medieprodusent':'Gleb Diadiurenko — Student & Media Producer';
+  const dictionary=copy[lang];
+  $$('[data-i18n]').forEach(el=>{const key=el.dataset.i18n;if(dictionary[key]!==undefined)el.textContent=dictionary[key]});
+  $$('[data-i18n-alt]').forEach(el=>{const key=el.dataset.i18nAlt;if(dictionary[key])el.alt=dictionary[key]});
+  $$('[data-lang]').forEach(btn=>{const selected=btn.dataset.lang===lang;btn.classList.toggle('is-active',selected);btn.setAttribute('aria-pressed',String(selected))});
+  $('.menu-toggle').setAttribute('aria-label',dictionary[$('.menu-toggle').getAttribute('aria-expanded')==='true'?'menuClose':'menuOpen']);
+  $('.gallery-filter').setAttribute('aria-label',dictionary.filterAria);
+  $('[data-close-project]').setAttribute('aria-label',dictionary.closeProject);
+  $('#lightboxClose').setAttribute('aria-label',dictionary.closePhoto);
+  $('#projectPrev').setAttribute('aria-label',dictionary.previousPhoto);
+  $('#projectNext').setAttribute('aria-label',dictionary.nextPhoto);
+  $('#lightboxPrev').setAttribute('aria-label',dictionary.previousPhoto);
+  $('#lightboxNext').setAttribute('aria-label',dictionary.nextPhoto);
+  $$('[data-project]').forEach(card=>card.setAttribute('aria-label',dictionary.viewProject+': '+(projects[card.dataset.project]?.title||'Project')));
+  $$('[data-photo]').forEach(tile=>tile.setAttribute('aria-label',dictionary.enlargePhoto+': '+(photos[Number(tile.dataset.photo)]?.[lang]||'Photo')));
+  const meta=$('meta[name="description"]');if(meta)meta.setAttribute('content',dictionary.pageDescription);
+  $('.tool-tags').setAttribute('aria-label',dictionary.toolGroupAria);
+  $$('[data-tool]').forEach(button=>{const name=toolShowcases[button.dataset.tool].name;button.setAttribute('aria-label',dictionary.toolOpenAria+': '+(typeof name==='string'?name:name[lang]));});
+  $('[data-close-tool]').setAttribute('aria-label',dictionary.toolCloseAria);
+  if(activeTool)renderTool();
+  if(activeProject)renderProject();
+  if(lightbox.open)renderLightbox();
+  if(typeof window.onManagedLanguageChanged==='function')window.onManagedLanguageChanged();
+  if(persist)saveLanguage(lang);
+}
+
+function renderTool() {
+  if(!activeTool)return;
+  const item=toolShowcases[activeTool];
+  const details=item[locale];
+  $('#toolDialogLogo').src=item.icon;
+  const name=typeof item.name==='string'?item.name:item.name[locale];
+  $('#toolDialogLogo').alt='';
+  $('#toolDialogTitle').textContent=name;
+  $('#toolDialogCategory').textContent=details.category;
+  $('#toolDialogDescription').textContent=details.description;
+  $('#toolDialogPersonal').textContent=details.personal;
+}
+function openTool(id,trigger){
+  if(!toolShowcases[id])return;
+  activeTool=id;
+  lastToolTrigger=trigger||null;
+  renderTool();
+  if(!toolDialog.open)toolDialog.showModal();
+  document.body.classList.add('no-scroll');
+}
+
+function renderProject() {
+  if(!activeProject) return;
+  const item=projects[activeProject];
+  const details=item[locale];
+  $('#dialogImage').src=item.images[activeProjectImage]||'assets/placeholder.svg';
+  $('#dialogImage').alt=item.alt?.[locale]?.[activeProjectImage]||item.title;
+  $('#dialogTitle').textContent=item.title;
+  $('#dialogKicker').textContent=details.kicker;
+  $('#dialogDesc').textContent=details.description;
+  $('#dialogRoleValue').textContent=details.role;
+  $('#dialogToolsValue').textContent=details.tools;
+  $('#dialogYearValue').textContent=item.year;
+  $('#dialogDisclaimer').textContent=details.disclaimer;
+  const multiple=item.images.length>1;
+  $('.dialog-image-controls').hidden=!multiple;
+  $('#projectCounter').textContent=String(activeProjectImage+1).padStart(2,'0')+' / '+String(item.images.length).padStart(2,'0');
+  $('#projectPrev').disabled=!multiple;
+  $('#projectNext').disabled=!multiple;
+}
+function openProject(id,trigger) {
+  if(!projects[id])return;
+  lastProjectTrigger=trigger||null;
+  activeProject=id;
+  activeProjectImage=0;
+  renderProject();
+  if(!projectDialog.open)projectDialog.showModal();
+  document.body.classList.add('no-scroll');
+}
+function stepProject(direction) {
+  if(!activeProject)return;
+  const count=projects[activeProject].images.length;
+  if(count<2)return;
+  activeProjectImage=(activeProjectImage+direction+count)%count;
+  renderProject();
+}
+
+function visiblePhotoIndexes(){return photos.map((p,i)=>({p,i})).filter(o=>galleryFilter==='all'||o.p.group===galleryFilter).map(o=>o.i)}
+function renderLightbox() {
+  const p=photos[currentLightboxIndex];
+  $('#lightboxImage').src=p.src;
+  $('#lightboxImage').alt=p[locale];
+  $('#lightboxCaption').textContent=p[locale];
+  const indexes=visiblePhotoIndexes();
+  $('#lightboxCount').textContent=(indexes.indexOf(currentLightboxIndex)+1)+' / '+indexes.length;
+}
+function openLightbox(index,trigger){
+  lastPhotoTrigger=trigger||null;
+  currentLightboxIndex=index;
+  renderLightbox();
+  if(!lightbox.open)lightbox.showModal();
+  document.body.classList.add('no-scroll');
+}
+function stepLightbox(direction){
+  const indexes=visiblePhotoIndexes();
+  if(indexes.length<2)return;
+  const index=indexes.indexOf(currentLightboxIndex);
+  currentLightboxIndex=indexes[(index+direction+indexes.length)%indexes.length];
+  renderLightbox();
+}
+function closeDialog(dialog){if(dialog.open)dialog.close()}
+
+function bindUI(){
+  $$('[data-lang]').forEach(btn=>btn.addEventListener('click',()=>translate(btn.dataset.lang)));
+  const menuBtn=$('#menuToggle');
+  const nav=$('#mainNav');
+  function setMenu(open){nav.classList.toggle('is-open',open);menuBtn.setAttribute('aria-expanded',String(open));menuBtn.setAttribute('aria-label',copy[locale][open?'menuClose':'menuOpen']);}
+  menuBtn.addEventListener('click',()=>setMenu(menuBtn.getAttribute('aria-expanded')!=='true'));
+  $$('#mainNav a').forEach(a=>a.addEventListener('click',()=>setMenu(false)));
+  window.addEventListener('resize',()=>{if(window.innerWidth>800)setMenu(false)});
+  $$('[data-tool]').forEach(button=>button.addEventListener('click',()=>openTool(button.dataset.tool,button)));
+  $('[data-close-tool]').addEventListener('click',()=>closeDialog(toolDialog));
+  $('[data-close-tool-bottom]').addEventListener('click',()=>closeDialog(toolDialog));
+  toolDialog.addEventListener('click',event=>{if(event.target===toolDialog)closeDialog(toolDialog)});
+  toolDialog.addEventListener('close',()=>{activeTool=null;document.body.classList.remove('no-scroll');if(lastToolTrigger)lastToolTrigger.focus({preventScroll:true})});
+  $('.projects-grid').addEventListener('click',event=>{const card=event.target.closest('[data-project]');if(card)openProject(card.dataset.project,card)});
+  $('[data-close-project]').addEventListener('click',()=>closeDialog(projectDialog));
+  $('[data-close-project-link]').addEventListener('click',()=>closeDialog(projectDialog));
+  $('#projectPrev').addEventListener('click',()=>stepProject(-1));
+  $('#projectNext').addEventListener('click',()=>stepProject(1));
+  projectDialog.addEventListener('click',event=>{if(event.target===projectDialog)closeDialog(projectDialog)});
+  projectDialog.addEventListener('close',()=>{activeProject=null;document.body.classList.remove('no-scroll');if(lastProjectTrigger)lastProjectTrigger.focus({preventScroll:true})});
+  $$('[data-filter]').forEach(btn=>btn.addEventListener('click',()=>{
+    galleryFilter=btn.dataset.filter;
+    $$('[data-filter]').forEach(b=>{const active=b===btn;b.classList.toggle('is-active',active);b.setAttribute('aria-pressed',String(active))});
+    $$('[data-gallery]').forEach(tile=>{tile.hidden=galleryFilter!=='all'&&tile.dataset.gallery!==galleryFilter});
+    $('.photo-grid').dataset.active=galleryFilter;
+  }));
+  $('.photo-grid').addEventListener('click',event=>{const tile=event.target.closest('[data-photo]');if(tile)openLightbox(Number(tile.dataset.photo),tile)});
+  $('#lightboxClose').addEventListener('click',()=>closeDialog(lightbox));
+  $('#lightboxPrev').addEventListener('click',()=>stepLightbox(-1));
+  $('#lightboxNext').addEventListener('click',()=>stepLightbox(1));
+  lightbox.addEventListener('click',event=>{if(event.target===lightbox)closeDialog(lightbox)});
+  lightbox.addEventListener('close',()=>{document.body.classList.remove('no-scroll');if(lastPhotoTrigger)lastPhotoTrigger.focus({preventScroll:true})});
+  document.addEventListener('keydown',event=>{
+    if(event.key==='ArrowLeft'){if(lightbox.open)stepLightbox(-1);else if(projectDialog.open)stepProject(-1)}
+    if(event.key==='ArrowRight'){if(lightbox.open)stepLightbox(1);else if(projectDialog.open)stepProject(1)}
+  });
+  $('#year').textContent=new Date().getFullYear();
+}
+function bindScrollAnimations(){
+  if(!('IntersectionObserver' in window)||window.matchMedia('(prefers-reduced-motion: reduce)').matches)return;
+  const revealObserver=new IntersectionObserver(entries=>{
+    entries.forEach(entry=>{if(entry.isIntersecting){entry.target.classList.add('is-visible');revealObserver.unobserve(entry.target)}});
+  },{threshold:.07,rootMargin:'0px 0px 55px 0px'});
+  $$('.reveal').forEach(el=>revealObserver.observe(el));
+  document.documentElement.classList.add('js-ready');
+  const sectionObserver=new IntersectionObserver(entries=>{
+    entries.forEach(entry=>{if(entry.isIntersecting){$$('#mainNav a').forEach(a=>a.classList.toggle('is-current',a.hash==='#'+entry.target.id))}});
+  },{rootMargin:'-25% 0px -60% 0px'});
+  $$('main section[id]').forEach(el=>sectionObserver.observe(el));
+}
+
+document.addEventListener('DOMContentLoaded',()=>{
+  bindUI();
+  translate(readSavedLanguage()==='no'?'no':'en',false);
+  bindScrollAnimations();
+});
